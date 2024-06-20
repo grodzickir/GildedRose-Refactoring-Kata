@@ -35,6 +35,7 @@ internal class GildedRoseUnitTests {
             Arguments.of(Item("Sulfuras, Hand of Ragnaros", 0, 80), 0, 80), // Sulfuras doesn't age and keeps Quality
             Arguments.of(Item("Sulfuras, Hand of Ragnaros", 10, 80), 10, 80),
             Arguments.of(Item("Backstage passes to a TAFKAL80ETC concert", 20, 10), 19, 11), // tickets increase in Quality
+            Arguments.of(Item("Backstage passes to a TAFKAL80ETC concert", 11, 15), 10, 16),
             Arguments.of(Item("Backstage passes to a TAFKAL80ETC concert", 10, 15), 9, 17), // by 2 if <= 10 days until concert
             Arguments.of(Item("Backstage passes to a TAFKAL80ETC concert", 8, 7), 7, 9),
             Arguments.of(Item("Backstage passes to a TAFKAL80ETC concert", 5, 22), 4, 25), // by 3 if <= 5 days until concert
