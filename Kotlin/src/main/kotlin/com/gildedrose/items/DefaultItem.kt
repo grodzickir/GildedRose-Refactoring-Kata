@@ -3,7 +3,7 @@ package com.gildedrose.items
 import com.gildedrose.Item
 
 class DefaultItem(item: Item):
-    AbstractItem(item.name, item.sellIn, item.quality) {
+    AbstractItem(item) {
 
     override fun updateInternal() {
         sellIn--

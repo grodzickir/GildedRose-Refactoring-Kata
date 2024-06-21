@@ -1,14 +1,24 @@
 package com.gildedrose.items
 
 import com.gildedrose.InvalidItemException
+import com.gildedrose.Item
 
+const val DEFAULT_QUALITY_LIMIT = 50
 
 abstract class AbstractItem(
-    final override val name: String,
-    final override var sellIn: Int,
-    final override var quality: Int,
-    validator: (Int, Int) -> Unit = ::validate
+    final override val item: Item,
+    validator: (Int, Int) -> Unit = ::defaultValidation
 ): SmartItem {
+    final override val name: String
+        get() = item.name
+    final override var sellIn get() = item.sellIn
+        protected set(value) {
+            item.sellIn = value
+        }
+    final override var quality get() = item.quality
+        protected set(value) {
+            item.quality = value
+        }
 
     protected open val maxQualityLimit = DEFAULT_QUALITY_LIMIT
 
@@ -34,13 +44,12 @@ abstract class AbstractItem(
     }
 
     companion object {
-        protected fun validate(sellIn: Int, quality: Int) {
+        protected fun defaultValidation(sellIn: Int, quality: Int) {
             require(quality >= 0) { "Quality must be greater than or equal to 0" }
             require(quality <= DEFAULT_QUALITY_LIMIT) { "Quality must be less than or equal to 0" }
         }
-        private const val DEFAULT_QUALITY_LIMIT = 50
     }
 
-    override fun toString(): String = "$name: SellIn $sellIn, Quality $quality"
+    override fun toString(): String = "${item.name}: SellIn $sellIn, Quality $quality"
 
 }

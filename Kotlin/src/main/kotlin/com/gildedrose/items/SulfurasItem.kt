@@ -3,7 +3,7 @@ package com.gildedrose.items
 import com.gildedrose.Item
 
 class SulfurasItem(item: Item) :
-    AbstractItem(item.name, item.sellIn, item.quality, ::sulfurasValidator) {
+    AbstractItem(item, ::sulfurasValidator) {
 
     override val maxQualityLimit = SULFURAS_QUALITY
 

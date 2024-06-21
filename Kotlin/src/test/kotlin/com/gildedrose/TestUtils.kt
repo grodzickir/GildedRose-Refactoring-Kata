@@ -11,9 +11,9 @@ class TestUtils {
             Assertions.assertEquals(quality, item.quality)
         }
         fun assertSmartItem(item: SmartItem, name: String, sellIn: Int, quality: Int) {
-            Assertions.assertEquals(name, item.name)
+            Assertions.assertEquals(name, item.item.name)
             Assertions.assertEquals(sellIn, item.sellIn)
-            Assertions.assertEquals(quality, item.quality)
+            Assertions.assertEquals(quality, item.item.quality)
         }
     }
 }
