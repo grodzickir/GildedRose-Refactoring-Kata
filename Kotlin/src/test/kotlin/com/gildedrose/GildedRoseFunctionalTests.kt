@@ -23,7 +23,7 @@ internal class GildedRoseFunctionalTests {
             Item("foo", 12, 3),
             Item("Aged Brie", 3, 5),
             Item("Sulfuras, Hand of Ragnaros", 10, 80),
-            Item("Conjured Mana Cake", 1, 22),
+            Item("Conjured Mana Cake", 1, 23),
         )
 
         val app = GildedRose(items)
@@ -44,14 +44,14 @@ internal class GildedRoseFunctionalTests {
         app.updateQuality()
         assertAll("Day 3",
             { assertItem(app.items[0], "foo", 9, 0) },
-            { assertItem(app.items[1], "Aged Brie", 0, 9) },
+            { assertItem(app.items[1], "Aged Brie", 0, 8) },
             { assertItem(app.items[2], "Sulfuras, Hand of Ragnaros", 10, 80) },
             { assertItem(app.items[3], "Conjured Mana Cake", -2, 13) },
         )
         app.updateQuality()
         assertAll("Day 4",
             { assertItem(app.items[0], "foo", 8, 0) },
-            { assertItem(app.items[1], "Aged Brie", -1, 11) },
+            { assertItem(app.items[1], "Aged Brie", -1, 10) },
             { assertItem(app.items[2], "Sulfuras, Hand of Ragnaros", 10, 80) },
             { assertItem(app.items[3], "Conjured Mana Cake", -3, 9) },
         )
